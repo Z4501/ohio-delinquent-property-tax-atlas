@@ -52,6 +52,36 @@
     transform: translateX(0) !important;
   }
 
+  /* Once a county is chosen, prioritize its total and map action above
+     the statewide explanatory material. */
+  .sidebar.county-selected header,
+  .sidebar.county-selected .state-stats .stat:not(.wide),
+  .sidebar.county-selected .progress {
+    display: none !important;
+  }
+
+  .sidebar.county-selected .controls {
+    padding-top: 12px !important;
+    padding-bottom: 8px !important;
+  }
+
+  .sidebar.county-selected .state-stats {
+    display: block !important;
+    margin-top: 8px !important;
+  }
+
+  .sidebar.county-selected .state-stats .wide {
+    padding: 7px 9px !important;
+  }
+
+  .sidebar.county-selected .state-stats .wide strong {
+    font-size: 17px !important;
+  }
+
+  .sidebar.county-selected .detail {
+    padding-top: 8px !important;
+  }
+
   .sidebar.open + .map-wrap .leaflet-control-container {
     display: none;
   }
