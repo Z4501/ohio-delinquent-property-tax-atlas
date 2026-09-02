@@ -40,4 +40,19 @@
     makeLink('Ohio overview', '../index.html', 'Return to the Ohio county map'),
     makeLink('Next →', countyHref(next), `${next[1]} County`),
   );
+
+  const sidebar = document.getElementById('sidebar');
+  const mobileToggle = document.getElementById('mobileToggle');
+  const closeMobilePanel = () => {
+    if (innerWidth > 760 || !sidebar?.classList.contains('open')) return;
+    sidebar.classList.remove('open');
+    if (mobileToggle) mobileToggle.textContent = 'Filters & totals';
+    setTimeout(() => window.dispatchEvent(new Event('resize')), 240);
+  };
+  document.addEventListener('click', (event) => {
+    if (event.target.closest('[data-id], #fit')) closeMobilePanel();
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeMobilePanel();
+  });
 })();
